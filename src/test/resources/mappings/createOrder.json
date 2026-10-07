@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/order/create",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.orderName == 'Test Order')]"
+      }
+    ],
+    "headers": {
+      "Content-Type": {
+        "equalTo": "application/json"
+      }
+    },
+    "response": {
+      "status": 201,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "jsonBody": {
+        "orderId": "12345",
+        "orderName": "Test Order",
+        "orderStatus": "PENDING",
+        "orderCreateTime": "2023-01-01T00:00:00"
+      }
+    }
+  }
+}
